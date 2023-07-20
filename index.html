@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@openai/api@0.27.0/dist/index.js"></script>
+    <title>Text to Image Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="module" src="index.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #8BC6EC, #9599E2);
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #textInput {
+            width: 300px;
+            height: 40px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #generateBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #generateBtn:hover {
+            background-color: #45a049;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.5);
+            border-top: 4px solid #FFC300; /* Bright yellow color */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text to Image Generator</h1>
+        <input type="text" id="textInput" placeholder="Enter your text here">
+        <button id="generateBtn">Generate Image</button>
+        <div id="imageOutput" style="position: relative;">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const imageOutput = document.getElementById('imageOutput');
+        const loadingSpinner = document.querySelector('.loading-spinner');
+
+        generateBtn.addEventListener('click', () => {
+            // Show the loading spinner while the image is being generated
+            loadingSpinner.style.display = 'block';
+
+            // You can add your image generation code here (not included in the provided HTML)
+            // Once the image is generated, you can hide the loading spinner and display the image in the output div
+            // For demonstration purposes, I will simulate a delay of 2 seconds before hiding the spinner.
+            setTimeout(() => {
+                loadingSpinner.style.display = 'none';
+                // Replace the following line with code to display the generated image
+                imageOutput.innerHTML = '<img src="path/to/your/generated-image.jpg" alt="Generated Image">';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
