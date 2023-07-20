@@ -1,4 +1,4 @@
-const API_KEY = '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';
+const API_KEY = 'write-your-own-api-key';
 const url ='https://api.openai.com/v1/images/generations'
 const outputImg = document.getElementById('imageOutput');
 
